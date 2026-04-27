@@ -11,6 +11,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application code
 COPY app.py .
 
+COPY lr_smote_pipeline.pkl .
+
 # Cloud Run injects PORT env var; default to 8080
 ENV PORT=8080
 EXPOSE 8080
