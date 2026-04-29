@@ -1,5 +1,4 @@
-from flask import Flask, request, jsonify
-
+from flask import Flask, request, jsonify, render_template
 import os
 
 import joblib
@@ -37,18 +36,12 @@ class DummyModel:
 # Initialize the model instance
 #MODEL = DummyModel()
 
+@app.route("/", methods=["GET"])
+def dashboard():
+    return render_template("dashboard.html")
+
 @app.route("/predict", methods=["POST"])
 def predict():
-    data = request.get_json()
-    X = data["X"]
-    y = MODEL.predict(X)
-    return jsonify({"y": y}), 200
-
-
-
-@app.route("/fakeornot", methods=["POST"])
-
-def fakeornot():
 
     """
 
